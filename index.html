@@ -161,7 +161,7 @@
 
   .btn-row{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;flex-wrap:wrap}
   .btn{
-    padding:13px 26px;border:none;border-radius:10px;cursor:pointer;
+    padding:14px 26px;border:none;border-radius:10px;cursor:pointer;
     font-weight:600;font-size:15px;font-family:inherit;
     transition:all .25s ease;display:inline-flex;align-items:center;gap:8px;
   }
@@ -185,10 +185,14 @@
 
   .bio-stage{
     background:linear-gradient(160deg,var(--blue-900) 0%, var(--blue-700) 50%, #0d1b3a 100%);
-    border-radius:18px;padding:28px 20px 22px;
+    border-radius:18px;padding:32px 24px 28px;
     position:relative;overflow:hidden;
     border:2px solid rgba(212,175,55,.25);
     box-shadow:inset 0 0 60px rgba(0,0,0,.3);
+    min-height: 400px;
+    touch-action: manipulation;
+    user-select: none;
+    transition: border-color .3s, box-shadow .3s;
   }
   .bio-stage::before{
     content:"";position:absolute;inset:0;
@@ -198,38 +202,52 @@
     background-size:30px 30px;
     pointer-events:none;
   }
-  .bio-stage .corner{position:absolute;width:28px;height:28px;border:3px solid var(--gold)}
-  .bio-stage .corner.tl{top:12px;left:12px;border-right:none;border-bottom:none}
-  .bio-stage .corner.tr{top:12px;right:12px;border-left:none;border-bottom:none}
-  .bio-stage .corner.bl{bottom:12px;left:12px;border-right:none;border-top:none}
-  .bio-stage .corner.br{bottom:12px;right:12px;border-left:none;border-top:none}
+  .bio-stage .corner{position:absolute;width:32px;height:32px;border:3px solid var(--gold)}
+  .bio-stage .corner.tl{top:14px;left:14px;border-right:none;border-bottom:none}
+  .bio-stage .corner.tr{top:14px;right:14px;border-left:none;border-bottom:none}
+  .bio-stage .corner.bl{bottom:14px;left:14px;border-right:none;border-top:none}
+  .bio-stage .corner.br{bottom:14px;right:14px;border-left:none;border-top:none}
+
+  .bio-stage.waiting-for-touch {
+    cursor: pointer;
+    animation: stagePulse 2s ease-in-out infinite;
+  }
+  @keyframes stagePulse {
+    0%, 100% { 
+      border-color: rgba(212,175,55,.3); 
+      box-shadow: inset 0 0 60px rgba(0,0,0,.3);
+    }
+    50% { 
+      border-color: rgba(212,175,55,.9); 
+      box-shadow: inset 0 0 60px rgba(0,0,0,.3), 0 0 25px rgba(212,175,55,.4);
+    }
+  }
 
   .finger-row{
     display:flex;justify-content:space-between;align-items:flex-end;
-    margin:12px auto 18px;gap:6px;position:relative;z-index:2;
+    margin:24px auto 28px;gap:12px;position:relative;z-index:2;
   }
   .finger{
-    flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:10px;
   }
   .finger-tip{
-    width:36px;height:54px;border-radius:45% 45% 40% 40% / 55% 55% 45% 45%;
+    width:54px;height:80px;border-radius:45% 45% 40% 40% / 55% 55% 45% 45%;
     background:rgba(59,130,246,.12);
-    border:2px solid rgba(147,197,253,.4);
+    border:3px solid rgba(147,197,253,.4);
     position:relative;
     transition:all .4s ease;
     display:grid;place-items:center;
   }
   .finger-tip::after{
-    content:"";position:absolute;inset:20% 25%;
+    content:"";position:absolute;inset:15% 20%;
     border-radius:50%;
     background:radial-gradient(circle, rgba(212,175,55,.3) 0%, transparent 70%);
   }
   .finger-name{
-    font-size:9px;color:var(--gold-light);letter-spacing:1px;
-    text-transform:uppercase;font-weight:600;text-align:center;
+    font-size:12px;color:var(--gold-light);letter-spacing:1px;
+    text-transform:uppercase;font-weight:700;text-align:center;
   }
   
-  /* Finger States */
   .finger.pending{opacity:0.35}
   .finger.waiting{
     border-color:var(--gold);
@@ -260,13 +278,13 @@
   }
   .finger.done .finger-tip::after{
     content:"✓";
-    color:white;font-weight:800;font-size:16px;
+    color:white;font-weight:800;font-size:22px;
     position:static;border-radius:0;inset:auto;width:auto;height:auto;
     background:none;
   }
 
   .scan-line{
-    position:absolute;top:70px;height:3px;width:90%;left:5%;
+    position:absolute;top:70px;height:4px;width:90%;left:5%;
     background:linear-gradient(90deg,transparent,var(--gold-light),var(--gold),var(--gold-light),transparent);
     box-shadow:0 0 14px 3px var(--gold),0 0 30px 6px rgba(212,175,55,.5);
     border-radius:2px;
@@ -276,25 +294,35 @@
   .scanning .scan-line{display:block}
   @keyframes scanMoveH{
     0%{top:60px}
-    50%{top:120px}
+    50%{top:150px}
     100%{top:60px}
   }
 
   .bio-status{
-    text-align:center;font-size:12px;color:var(--gold-light);
-    letter-spacing:2px;text-transform:uppercase;font-weight:600;z-index:2;position:relative;
-    padding:10px;background:rgba(0,0,0,.25);border-radius:8px;margin-top:4px;
+    text-align:center;font-size:14px;color:var(--gold-light);
+    letter-spacing:2px;text-transform:uppercase;font-weight:700;z-index:2;position:relative;
+    padding:12px;background:rgba(0,0,0,.25);border-radius:10px;margin-top:8px;
     border:1px solid rgba(212,175,55,.3);
+  }
+
+  .tap-icon {
+    text-align: center;
+    margin-top: 16px;
+    animation: tapBounce 1.5s ease-in-out infinite;
+  }
+  @keyframes tapBounce {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-8px); opacity: 1; }
   }
 
   .bio-info h3{font-family:'Playfair Display',serif;color:var(--blue-900);font-size:22px;margin-bottom:10px}
   .bio-info p{color:var(--gray-500);margin-bottom:20px;line-height:1.6;font-size:14px}
 
   .progress-box{background:var(--gray-50);border-radius:12px;padding:18px;margin-bottom:20px}
-  .progress-label{display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px;font-weight:600}
+  .progress-label{display:flex;justify-content:space-between;margin-bottom:10px;font-size:14px;font-weight:600}
   .progress-label .pct{color:var(--blue-600)}
   .progress-label .fname{color:var(--blue-900);font-weight:700}
-  .progress-bar{height:10px;background:var(--gray-200);border-radius:10px;overflow:hidden}
+  .progress-bar{height:12px;background:var(--gray-200);border-radius:10px;overflow:hidden}
   .progress-bar .fill{
     height:100%;width:0%;
     background:linear-gradient(90deg,var(--blue-500),var(--gold));
@@ -307,14 +335,14 @@
     max-height:220px;overflow-y:auto;
   }
   .finger-list-item{
-    display:flex;align-items:center;gap:10px;padding:8px 10px;
-    border-radius:8px;font-size:13px;transition:background .3s;
+    display:flex;align-items:center;gap:10px;padding:10px 12px;
+    border-radius:8px;font-size:14px;transition:background .3s;
   }
   .finger-list-item.active{background:rgba(212,175,55,.15);font-weight:600}
   .finger-list-item.done{color:var(--success);font-weight:600}
   .finger-list-item .ico{
-    width:22px;height:22px;border-radius:50%;background:var(--gray-200);
-    display:grid;place-items:center;font-size:11px;color:var(--gray-500);
+    width:24px;height:24px;border-radius:50%;background:var(--gray-200);
+    display:grid;place-items:center;font-size:12px;color:var(--gray-500);
     flex-shrink:0;transition:all .3s;
   }
   .finger-list-item.done .ico{background:var(--success);color:white}
@@ -448,8 +476,13 @@
     .card h2{font-size:22px}
     .btn-row{flex-direction:column-reverse}
     .btn-row .btn{width:100%;justify-content:center}
-    .finger-tip{width:32px;height:48px}
-    .finger-name{font-size:8px}
+    
+    .finger-tip{width: 64px; height: 96px; border-width: 3px;}
+    .finger-name{font-size: 11px; margin-top: 6px;}
+    .finger-row{gap: 8px; margin: 28px auto 32px;}
+    .bio-stage{padding: 36px 16px 32px; min-height: 420px;}
+    .scan-line{width: 95%; left: 2.5%;}
+    .finger-tip::after{inset: 15% 20%;}
   }
 
   footer.foot{text-align:center;padding:24px;font-size:12px;color:var(--gray-500)}
@@ -551,10 +584,10 @@
   <!-- STEP 2 : LEFT HAND -->
   <section class="card step-panel" data-panel="2" style="display:none">
     <h2>Left Hand <span class="accent">Biometric</span></h2>
-    <p class="subtitle">Place each finger on the scanner one by one. Tap the button below to scan the highlighted finger.</p>
+    <p class="subtitle">Place each finger on the scanner one by one. Touch the scanner area to automatically capture the highlighted finger.</p>
 
     <div class="bio-layout">
-      <div class="bio-stage" id="stageLeft" data-hand="left">
+      <div class="bio-stage waiting-for-touch" id="stageLeft" data-hand="left">
         <div class="corner tl"></div><div class="corner tr"></div>
         <div class="corner bl"></div><div class="corner br"></div>
         <div class="scan-line"></div>
@@ -567,12 +600,16 @@
           <div class="finger" data-finger="pinky"><div class="finger-tip"></div><div class="finger-name">Pinky</div></div>
         </div>
 
-        <div class="bio-status" id="statusLeft">PLACE YOUR THUMB ON THE SCANNER</div>
+        <div class="bio-status" id="statusLeft">TOUCH SCANNER TO CAPTURE THUMB</div>
+        <div class="tap-icon" id="tapIconLeft">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+          <div style="font-size:11px; color:var(--gold-light); margin-top:4px; letter-spacing:1px;">TAP SCANNER</div>
+        </div>
       </div>
 
       <div class="bio-info">
         <h3>Left Hand — Sequential Scan</h3>
-        <p>The system will guide you through each finger. Place the highlighted finger on the glass and tap "Scan" to capture.</p>
+        <p>The system will guide you through each finger. Place the highlighted finger on the glass and touch the scanner area to capture.</p>
 
         <div class="finger-list" id="fingerListLeft"></div>
 
@@ -580,11 +617,6 @@
           <div class="progress-label"><span>Finger: <span class="fname" id="fnameLeft">Thumb</span></span><span class="pct" id="pctLeft">0%</span></div>
           <div class="progress-bar"><div class="fill" id="fillLeft"></div></div>
         </div>
-
-        <button class="btn btn-gold" id="scanBtnLeft" style="width:100%;justify-content:center">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-          TAP TO SCAN THUMB
-        </button>
 
         <div class="success-banner" id="doneLeft">
           <div class="check">
@@ -607,10 +639,10 @@
   <!-- STEP 3 : RIGHT HAND -->
   <section class="card step-panel" data-panel="3" style="display:none">
     <h2>Right Hand <span class="accent">Biometric</span></h2>
-    <p class="subtitle">Place each finger on the scanner one by one. Tap the button below to scan the highlighted finger.</p>
+    <p class="subtitle">Place each finger on the scanner one by one. Touch the scanner area to automatically capture the highlighted finger.</p>
 
     <div class="bio-layout">
-      <div class="bio-stage" id="stageRight" data-hand="right">
+      <div class="bio-stage waiting-for-touch" id="stageRight" data-hand="right">
         <div class="corner tl"></div><div class="corner tr"></div>
         <div class="corner bl"></div><div class="corner br"></div>
         <div class="scan-line"></div>
@@ -623,12 +655,16 @@
           <div class="finger" data-finger="pinky"><div class="finger-tip"></div><div class="finger-name">Pinky</div></div>
         </div>
 
-        <div class="bio-status" id="statusRight">PLACE YOUR THUMB ON THE SCANNER</div>
+        <div class="bio-status" id="statusRight">TOUCH SCANNER TO CAPTURE THUMB</div>
+        <div class="tap-icon" id="tapIconRight">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg>
+          <div style="font-size:11px; color:var(--gold-light); margin-top:4px; letter-spacing:1px;">TAP SCANNER</div>
+        </div>
       </div>
 
       <div class="bio-info">
         <h3>Right Hand — Sequential Scan</h3>
-        <p>The system will guide you through each finger. Place the highlighted finger on the glass and tap "Scan" to capture.</p>
+        <p>The system will guide you through each finger. Place the highlighted finger on the glass and touch the scanner area to capture.</p>
 
         <div class="finger-list" id="fingerListRight"></div>
 
@@ -636,11 +672,6 @@
           <div class="progress-label"><span>Finger: <span class="fname" id="fnameRight">Thumb</span></span><span class="pct" id="pctRight">0%</span></div>
           <div class="progress-bar"><div class="fill" id="fillRight"></div></div>
         </div>
-
-        <button class="btn btn-gold" id="scanBtnRight" style="width:100%;justify-content:center">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-          TAP TO SCAN THUMB
-        </button>
 
         <div class="success-banner" id="doneRight">
           <div class="check">
@@ -837,23 +868,24 @@ function updateFingerUI(hand){
   });
 
   const status = document.getElementById('status' + H);
-  const btn = document.getElementById('scanBtn' + H);
+  const stage = document.getElementById('stage' + H);
   const fname = document.getElementById('fname' + H);
+  const tapIcon = document.getElementById('tapIcon' + H);
   
   if (isDone) {
     status.textContent = '✓ ALL FINGERS CAPTURED';
     status.style.color = '#86efac';
-    btn.style.display = 'none';
+    stage.classList.remove('waiting-for-touch');
+    if (tapIcon) tapIcon.style.display = 'none';
     document.getElementById('done' + H).classList.add('show');
     if (hand === 'left') document.getElementById('next2').disabled = false;
     else document.getElementById('next3').disabled = false;
   } else {
-    status.textContent = `PLACE YOUR ${label.toUpperCase()} ON THE SCANNER`;
+    status.textContent = `TOUCH SCANNER TO CAPTURE ${label.toUpperCase()}`;
     status.style.color = 'var(--gold-light)';
     fname.textContent = label;
-    btn.style.display = 'flex';
-    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg> TAP TO SCAN ${label.toUpperCase()}`;
-    btn.disabled = false;
+    stage.classList.add('waiting-for-touch');
+    if (tapIcon) tapIcon.style.display = 'block';
   }
 }
 
@@ -867,7 +899,6 @@ function startSingleFingerScan(hand){
   
   scanState[hand].scanning = true;
   
-  const btn = document.getElementById('scanBtn' + H);
   const status = document.getElementById('status' + H);
   const fill = document.getElementById('fill' + H);
   const pct = document.getElementById('pct' + H);
@@ -875,10 +906,12 @@ function startSingleFingerScan(hand){
   const stage = document.getElementById('stage' + H);
   const row = document.getElementById('fingerRow' + H);
   const list = document.getElementById('fingerList' + H);
+  const tapIcon = document.getElementById('tapIcon' + H);
   
-  btn.disabled = true;
-  btn.innerHTML = `<div class="spinner" style="width:18px;height:18px;border-width:3px;margin:0"></div> Scanning ${label}...`;
-  status.textContent = `SCANNING: ${label.toUpperCase()}`;
+  stage.classList.remove('waiting-for-touch');
+  if (tapIcon) tapIcon.style.display = 'none';
+  
+  status.textContent = `SCANNING ${label.toUpperCase()}...`;
   fname.textContent = label;
   stage.classList.add('scanning');
   
@@ -917,8 +950,22 @@ function startSingleFingerScan(hand){
   tick();
 }
 
-document.getElementById('scanBtnLeft').addEventListener('click', () => startSingleFingerScan('left'));
-document.getElementById('scanBtnRight').addEventListener('click', () => startSingleFingerScan('right'));
+function attachTouchScanner(hand) {
+  const stage = document.getElementById('stage' + cap(hand));
+  
+  const handleScan = (e) => {
+    if (e.type === 'touchstart') {
+      e.preventDefault(); 
+    }
+    startSingleFingerScan(hand);
+  };
+
+  stage.addEventListener('click', handleScan);
+  stage.addEventListener('touchstart', handleScan, { passive: false });
+}
+
+attachTouchScanner('left');
+attachTouchScanner('right');
 
 function setErr(id,msg){
   const wrap = document.getElementById(id).closest('.field');
