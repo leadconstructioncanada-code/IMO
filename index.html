@@ -41,9 +41,9 @@
       linear-gradient(180deg,#eef3fb 0%, #e7eefc 100%);
     min-height:100vh;
     -webkit-font-smoothing:antialiased;
+    -webkit-tap-highlight-color:transparent;
   }
 
-  /* ===== HEADER ===== */
   header.topbar{
     background:linear-gradient(135deg,var(--blue-900) 0%, var(--blue-700) 50%, var(--blue-600) 100%);
     color:var(--white);
@@ -71,19 +71,11 @@
     display:block;margin-top:2px;
   }
 
-  /* ===== CONTAINER ===== */
-  .container{
-    max-width:1100px;margin:0 auto;padding:32px 20px 60px;
-  }
+  .container{max-width:1100px;margin:0 auto;padding:32px 20px 60px;}
 
-  /* ===== PROGRESS BAR ===== */
   .progress-wrap{
-    background:var(--white);
-    border-radius:18px;
-    padding:22px 24px;
-    box-shadow:var(--shadow);
-    margin-bottom:24px;
-    border-top:3px solid var(--gold);
+    background:var(--white);border-radius:18px;padding:22px 24px;
+    box-shadow:var(--shadow);margin-bottom:24px;border-top:3px solid var(--gold);
   }
   .steps{
     display:grid;grid-template-columns:repeat(4,1fr);gap:8px;align-items:center;
@@ -95,12 +87,9 @@
   }
   .step-fill{
     position:absolute;top:20px;left:5%;height:3px;background:linear-gradient(90deg,var(--gold) 0%, var(--blue-500) 100%);
-    border-radius:2px;z-index:1;transition:width .6s cubic-bezier(.4,0,.2,1);
-    width:0%;
+    border-radius:2px;z-index:1;transition:width .6s cubic-bezier(.4,0,.2,1);width:0%;
   }
-  .step{
-    position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;
-  }
+  .step{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px}
   .step .circle{
     width:42px;height:42px;border-radius:50%;
     background:var(--white);border:3px solid var(--gray-200);
@@ -121,56 +110,38 @@
   }
   .step.active .label,.step.done .label{color:var(--blue-900)}
 
-  /* ===== CARD ===== */
   .card{
     background:var(--white);border-radius:20px;padding:36px;
     box-shadow:var(--shadow);border:1px solid rgba(15,23,42,.05);
     animation:fadeUp .5s ease both;
   }
-  @keyframes fadeUp{
-    from{opacity:0;transform:translateY(16px)}
-    to{opacity:1;transform:translateY(0)}
-  }
+  @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
   .card h2{
-    font-family:'Playfair Display',serif;
-    font-size:28px;color:var(--blue-900);margin-bottom:6px;
-    display:flex;align-items:center;gap:10px;
+    font-family:'Playfair Display',serif;font-size:28px;color:var(--blue-900);margin-bottom:6px;
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
   }
   .card h2 .accent{color:var(--gold)}
-  .card .subtitle{color:var(--gray-500);margin-bottom:28px;font-size:14px}
+  .card .subtitle{color:var(--gray-500);margin-bottom:28px;font-size:14px;line-height:1.5}
 
-  /* ===== FORM ===== */
-  .form-grid{
-    display:grid;grid-template-columns:repeat(2,1fr);gap:18px 20px;
-  }
+  .form-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px 20px}
   .field{display:flex;flex-direction:column;gap:6px}
   .field.full{grid-column:1/-1}
-  .field label{
-    font-size:13px;font-weight:600;color:var(--gray-700);
-    display:flex;align-items:center;gap:6px;
-  }
+  .field label{font-size:13px;font-weight:600;color:var(--gray-700);display:flex;align-items:center;gap:6px}
   .field label .req{color:#dc2626}
   .field input,.field select{
     padding:13px 14px;border:1.5px solid var(--gray-200);
     border-radius:10px;font-size:15px;font-family:inherit;
-    background:var(--gray-50);transition:all .25s ease;
-    color:var(--gray-900);
+    background:var(--gray-50);transition:all .25s ease;color:var(--gray-900);
   }
   .field input:focus,.field select:focus{
     outline:none;border-color:var(--blue-500);background:var(--white);
     box-shadow:0 0 0 4px rgba(37,99,235,.12);
   }
-  .field.error input,.field.error select{
-    border-color:#dc2626;background:#fef2f2;
-  }
-  .field .err-msg{
-    font-size:12px;color:#dc2626;min-height:14px;
-  }
+  .field.error input,.field.error select{border-color:#dc2626;background:#fef2f2}
+  .field .err-msg{font-size:12px;color:#dc2626;min-height:14px}
 
-  /* Photo upload */
   .photo-upload{
-    border:2px dashed var(--gray-200);border-radius:14px;
-    padding:24px;text-align:center;cursor:pointer;
+    border:2px dashed var(--gray-200);border-radius:14px;padding:24px;text-align:center;cursor:pointer;
     background:var(--gray-50);transition:all .25s ease;
   }
   .photo-upload:hover{border-color:var(--blue-500);background:#eff6ff}
@@ -182,17 +153,13 @@
   }
   .photo-preview{
     max-width:180px;max-height:180px;margin:0 auto;border-radius:12px;
-    border:3px solid var(--gold);box-shadow:0 6px 20px rgba(0,0,0,.1);
-    display:none;
+    border:3px solid var(--gold);box-shadow:0 6px 20px rgba(0,0,0,.1);display:none;
   }
   .photo-preview.show{display:block;margin-bottom:10px}
   .photo-upload p{font-size:14px;color:var(--gray-500);font-weight:500}
   .photo-upload small{color:var(--gray-500);font-size:12px}
 
-  /* ===== BUTTONS ===== */
-  .btn-row{
-    display:flex;gap:12px;justify-content:flex-end;margin-top:28px;flex-wrap:wrap;
-  }
+  .btn-row{display:flex;gap:12px;justify-content:flex-end;margin-top:28px;flex-wrap:wrap}
   .btn{
     padding:13px 26px;border:none;border-radius:10px;cursor:pointer;
     font-weight:600;font-size:15px;font-family:inherit;
@@ -209,21 +176,21 @@
     color:var(--blue-900);box-shadow:0 6px 18px rgba(212,175,55,.4);
   }
   .btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(212,175,55,.55)}
-  .btn-ghost{
-    background:var(--white);color:var(--gray-700);border:1.5px solid var(--gray-200);
-  }
+  .btn-ghost{background:var(--white);color:var(--gray-700);border:1.5px solid var(--gray-200)}
   .btn-ghost:hover{background:var(--gray-50)}
 
   /* ===== BIOMETRIC ===== */
-  .bio-layout{
-    display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;
-  }
+  .bio-layout{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+
   .bio-stage{
     background:linear-gradient(160deg,var(--blue-900) 0%, var(--blue-700) 50%, #0d1b3a 100%);
-    border-radius:18px;padding:40px 24px;min-height:360px;
+    border-radius:18px;padding:28px 20px 22px;
     position:relative;overflow:hidden;
     border:2px solid rgba(212,175,55,.25);
     box-shadow:inset 0 0 60px rgba(0,0,0,.3);
+    cursor:pointer;
+    touch-action:manipulation;
+    user-select:none;
   }
   .bio-stage::before{
     content:"";position:absolute;inset:0;
@@ -233,68 +200,137 @@
     background-size:30px 30px;
     pointer-events:none;
   }
-  .bio-stage .corner{
-    position:absolute;width:28px;height:28px;border:3px solid var(--gold);
-  }
+  .bio-stage .corner{position:absolute;width:28px;height:28px;border:3px solid var(--gold)}
   .bio-stage .corner.tl{top:12px;left:12px;border-right:none;border-bottom:none}
   .bio-stage .corner.tr{top:12px;right:12px;border-left:none;border-bottom:none}
   .bio-stage .corner.bl{bottom:12px;left:12px;border-right:none;border-top:none}
   .bio-stage .corner.br{bottom:12px;right:12px;border-left:none;border-top:none}
 
-  .hand-svg{
-    width:100%;max-width:240px;display:block;margin:0 auto;
-    filter:drop-shadow(0 0 20px rgba(59,130,246,.4));
-    position:relative;z-index:2;
+  /* Finger display (5 circles) */
+  .finger-row{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    margin:12px auto 18px;gap:6px;position:relative;z-index:2;
   }
-  .hand-svg .hand-fill{fill:rgba(59,130,246,.12);stroke:rgba(147,197,253,.7);stroke-width:1.5}
+  .finger{
+    flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+  }
+  .finger-tip{
+    width:36px;height:54px;border-radius:45% 45% 40% 40% / 55% 55% 45% 45%;
+    background:rgba(59,130,246,.12);
+    border:2px solid rgba(147,197,253,.4);
+    position:relative;
+    transition:all .3s ease;
+    display:grid;place-items:center;
+  }
+  .finger-tip::after{
+    content:"";position:absolute;inset:20% 25%;
+    border-radius:50%;
+    background:radial-gradient(circle, rgba(212,175,55,.3) 0%, transparent 70%);
+  }
+  .finger-name{
+    font-size:9px;color:var(--gold-light);letter-spacing:1px;
+    text-transform:uppercase;font-weight:600;text-align:center;
+  }
+  .finger.scanning .finger-tip{
+    border-color:var(--gold);
+    background:rgba(212,175,55,.2);
+    box-shadow:0 0 20px var(--gold), 0 0 40px rgba(212,175,55,.4);
+    animation:fingerPulse 1s ease-in-out infinite;
+  }
+  .finger.done .finger-tip{
+    border-color:var(--success);
+    background:rgba(22,163,74,.3);
+    box-shadow:0 0 15px rgba(22,163,74,.5);
+  }
+  .finger.done .finger-tip::after{
+    background:radial-gradient(circle, rgba(22,163,74,.6) 0%, transparent 70%);
+    content:"✓";
+    color:white;font-weight:700;font-size:14px;
+    inset:auto;width:auto;height:auto;
+    position:static;border-radius:0;
+  }
+  .finger.done .finger-tip::before{display:none}
+  @keyframes fingerPulse{
+    0%,100%{transform:scale(1);box-shadow:0 0 20px var(--gold)}
+    50%{transform:scale(1.08);box-shadow:0 0 30px var(--gold), 0 0 60px rgba(212,175,55,.6)}
+  }
 
+  /* Scan line across finger row */
   .scan-line{
-    position:absolute;left:5%;right:5%;height:3px;
+    position:absolute;top:70px;height:3px;width:90%;left:5%;
     background:linear-gradient(90deg,transparent,var(--gold-light),var(--gold),var(--gold-light),transparent);
     box-shadow:0 0 14px 3px var(--gold),0 0 30px 6px rgba(212,175,55,.5);
     border-radius:2px;
-    top:20%;
-    z-index:3;display:none;
-    animation:scanMove 1.8s ease-in-out infinite;
+    z-index:4;display:none;
+    animation:scanMoveH 1.6s ease-in-out infinite;
   }
   .scanning .scan-line{display:block}
-  @keyframes scanMove{
-    0%,100%{top:18%}
-    50%{top:82%}
-  }
-
-  .scanning .hand-svg{animation:handPulse 1.2s ease-in-out infinite}
-  @keyframes handPulse{
-    0%,100%{filter:drop-shadow(0 0 20px rgba(59,130,246,.4))}
-    50%{filter:drop-shadow(0 0 40px rgba(212,175,55,.7))}
+  @keyframes scanMoveH{
+    0%{top:60px}
+    50%{top:120px}
+    100%{top:60px}
   }
 
   .bio-status{
-    text-align:center;margin-top:16px;font-size:13px;color:var(--gold-light);
+    text-align:center;font-size:12px;color:var(--gold-light);
     letter-spacing:2px;text-transform:uppercase;font-weight:600;z-index:2;position:relative;
+    padding:10px;background:rgba(0,0,0,.25);border-radius:8px;margin-top:4px;
+    border:1px solid rgba(212,175,55,.3);
+  }
+  .finger-counter{
+    display:flex;justify-content:center;gap:6px;margin:10px 0 0;position:relative;z-index:2;
+  }
+  .finger-counter .dot{
+    width:10px;height:10px;border-radius:50%;
+    background:rgba(147,197,253,.3);border:1px solid rgba(147,197,253,.5);
+    transition:all .3s;
+  }
+  .finger-counter .dot.active{background:var(--gold);box-shadow:0 0 8px var(--gold)}
+  .finger-counter .dot.done{background:var(--success);border-color:var(--success)}
+
+  .tap-hint{
+    text-align:center;margin-top:10px;font-size:11px;color:var(--gold-light);
+    letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+    animation:blinkHint 1.5s ease-in-out infinite;
+  }
+  @keyframes blinkHint{
+    0%,100%{opacity:.6}
+    50%{opacity:1}
   }
 
-  .bio-info h3{
-    font-family:'Playfair Display',serif;color:var(--blue-900);font-size:22px;margin-bottom:10px;
-  }
+  .bio-info h3{font-family:'Playfair Display',serif;color:var(--blue-900);font-size:22px;margin-bottom:10px}
   .bio-info p{color:var(--gray-500);margin-bottom:20px;line-height:1.6;font-size:14px}
 
-  .progress-box{
-    background:var(--gray-50);border-radius:12px;padding:18px;margin-bottom:20px;
-  }
-  .progress-label{
-    display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px;font-weight:600;
-  }
+  .progress-box{background:var(--gray-50);border-radius:12px;padding:18px;margin-bottom:20px}
+  .progress-label{display:flex;justify-content:space-between;margin-bottom:10px;font-size:13px;font-weight:600}
   .progress-label .pct{color:var(--blue-600)}
-  .progress-bar{
-    height:10px;background:var(--gray-200);border-radius:10px;overflow:hidden;
-  }
+  .progress-label .fname{color:var(--blue-900);font-weight:700}
+  .progress-bar{height:10px;background:var(--gray-200);border-radius:10px;overflow:hidden}
   .progress-bar .fill{
     height:100%;width:0%;
     background:linear-gradient(90deg,var(--blue-500),var(--gold));
     border-radius:10px;transition:width .15s linear;
     box-shadow:0 0 10px rgba(37,99,235,.5);
   }
+
+  .finger-list{
+    background:var(--gray-50);border-radius:12px;padding:14px;margin-bottom:16px;
+    max-height:220px;overflow-y:auto;
+  }
+  .finger-list-item{
+    display:flex;align-items:center;gap:10px;padding:8px 10px;
+    border-radius:8px;font-size:13px;transition:background .3s;
+  }
+  .finger-list-item.active{background:rgba(212,175,55,.15);font-weight:600}
+  .finger-list-item.done{color:var(--success);font-weight:600}
+  .finger-list-item .ico{
+    width:22px;height:22px;border-radius:50%;background:var(--gray-200);
+    display:grid;place-items:center;font-size:11px;color:var(--gray-500);
+    flex-shrink:0;transition:all .3s;
+  }
+  .finger-list-item.done .ico{background:var(--success);color:white}
+  .finger-list-item.active .ico{background:var(--gold);color:var(--blue-900);animation:spin 1.2s linear infinite}
+  @keyframes spin{to{transform:rotate(360deg)}}
 
   .success-banner{
     background:linear-gradient(135deg,#dcfce7,#bbf7d0);
@@ -313,7 +349,6 @@
   .success-banner strong{color:#14532d;font-size:14px;display:block}
   .success-banner small{color:#166534}
 
-  /* ===== REVIEW ===== */
   .success-hero{
     text-align:center;padding:30px 20px;
     background:linear-gradient(135deg,rgba(22,163,74,.1),rgba(22,163,74,.04));
@@ -329,12 +364,8 @@
   .success-hero h2{color:#14532d;font-size:26px;margin-bottom:6px}
   .success-hero p{color:#166534;font-size:14px}
 
-  .review-grid{
-    display:grid;grid-template-columns:220px 1fr;gap:28px;margin-bottom:22px;
-  }
-  .review-photo{
-    text-align:center;
-  }
+  .review-grid{display:grid;grid-template-columns:220px 1fr;gap:28px;margin-bottom:22px}
+  .review-photo{text-align:center}
   .review-photo img{
     width:180px;height:220px;object-fit:cover;border-radius:14px;
     border:4px solid var(--gold);box-shadow:var(--shadow);
@@ -343,7 +374,6 @@
     margin-top:10px;font-size:12px;color:var(--gray-500);
     letter-spacing:1px;text-transform:uppercase;font-weight:600;
   }
-
   .info-list{display:flex;flex-direction:column;gap:12px}
   .info-row{
     display:grid;grid-template-columns:140px 1fr;gap:12px;
@@ -361,37 +391,24 @@
   .completed-card h3{color:#14532d;font-family:'Playfair Display',serif;font-size:20px;margin-bottom:6px}
   .completed-card p{color:#166534;font-size:14px}
 
-  /* ===== RECEIPT ===== */
   #receipt{
     position:fixed;top:-10000px;left:-10000px;width:520px;
     background:white;padding:40px 36px;font-family:'Inter',sans-serif;
     color:#0f172a;
   }
-  .receipt-header{
-    text-align:center;padding-bottom:18px;
-    border-bottom:3px double #1e3a8a;margin-bottom:20px;
-  }
-  .receipt-header .rh-top{
-    display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px;
-  }
+  .receipt-header{text-align:center;padding-bottom:18px;border-bottom:3px double #1e3a8a;margin-bottom:20px}
+  .receipt-header .rh-top{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:10px}
   .receipt-header .rh-logo{
     width:52px;height:52px;border-radius:10px;
     background:linear-gradient(135deg,#1e3a8a,#2563eb);
     color:#d4af37;display:grid;place-items:center;
     font-family:'Playfair Display',serif;font-weight:800;font-size:20px;letter-spacing:1px;
   }
-  .receipt-header h3{
-    font-family:'Playfair Display',serif;color:#1e3a8a;font-size:22px;margin:0;
-  }
+  .receipt-header h3{font-family:'Playfair Display',serif;color:#1e3a8a;font-size:22px;margin:0}
   .receipt-header .sub{font-size:10px;letter-spacing:3px;color:#d4af37;text-transform:uppercase;margin-top:2px}
-  .receipt-header .title{
-    font-size:18px;font-weight:700;color:#1e3a8a;margin-top:10px;letter-spacing:2px;
-  }
+  .receipt-header .title{font-size:18px;font-weight:700;color:#1e3a8a;margin-top:10px;letter-spacing:2px}
   .receipt-body{margin-bottom:20px}
-  .receipt-row{
-    display:flex;justify-content:space-between;padding:10px 0;
-    border-bottom:1px dashed #cbd5e1;font-size:13px;
-  }
+  .receipt-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #cbd5e1;font-size:13px}
   .receipt-row .k{color:#64748b;font-weight:600;text-transform:uppercase;letter-spacing:.5px;font-size:11px}
   .receipt-row .v{color:#0f172a;font-weight:700;text-align:right;max-width:60%}
   .receipt-status{
@@ -400,23 +417,13 @@
   }
   .receipt-status h4{color:#14532d;font-size:15px;margin-bottom:3px;letter-spacing:1.5px}
   .receipt-status p{color:#166534;font-size:11px}
-  .receipt-footer{
-    text-align:center;padding-top:16px;border-top:1px solid #e2e8f0;font-size:10px;color:#64748b;line-height:1.6;
-  }
-  /* Circular SVG stamp */
-  .receipt-stamp{
-    width:130px;height:130px;margin:0 auto 10px;display:block;
-    transform:rotate(-12deg);
-  }
+  .receipt-footer{text-align:center;padding-top:16px;border-top:1px solid #e2e8f0;font-size:10px;color:#64748b;line-height:1.6}
+  .receipt-stamp{width:130px;height:130px;margin:0 auto 10px;display:block;transform:rotate(-12deg)}
   .receipt-stamp .ring{fill:none;stroke:#1e3a8a;stroke-width:2.2}
   .receipt-stamp .ring-inner{fill:none;stroke:#1e3a8a;stroke-width:1}
   .receipt-stamp text{fill:#1e3a8a;font-family:'Playfair Display',serif;font-weight:800}
 
-  /* ===== Loading Overlay ===== */
-  .loader{
-    position:fixed;inset:0;background:rgba(11,30,63,.85);
-    display:none;place-items:center;z-index:100;
-  }
+  .loader{position:fixed;inset:0;background:rgba(11,30,63,.85);display:none;place-items:center;z-index:100}
   .loader.show{display:grid}
   .loader-box{
     background:white;padding:30px 40px;border-radius:14px;text-align:center;
@@ -427,7 +434,6 @@
     border-top-color:var(--blue-500);border-radius:50%;
     animation:spin .9s linear infinite;margin:0 auto 14px;
   }
-  @keyframes spin{to{transform:rotate(360deg)}}
   .loader-box p{font-weight:600;color:var(--blue-900)}
 
   .toast{
@@ -436,7 +442,7 @@
     box-shadow:0 10px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;
     transition:all .3s ease;z-index:200;font-size:14px;font-weight:500;
     display:flex;align-items:center;gap:10px;
-    border-left:4px solid var(--gold);
+    border-left:4px solid var(--gold);max-width:90vw;
   }
   .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 
@@ -453,11 +459,11 @@
     .card h2{font-size:22px}
     .btn-row{flex-direction:column-reverse}
     .btn-row .btn{width:100%;justify-content:center}
+    .finger-tip{width:32px;height:48px}
+    .finger-name{font-size:8px}
   }
 
-  footer.foot{
-    text-align:center;padding:24px;font-size:12px;color:var(--gray-500);
-  }
+  footer.foot{text-align:center;padding:24px;font-size:12px;color:var(--gray-500)}
   footer.foot span{color:var(--gold);font-weight:700}
 </style>
 </head>
@@ -474,22 +480,13 @@
 </header>
 
 <main class="container">
-  <!-- Progress Bar -->
   <div class="progress-wrap">
     <div class="steps">
       <div class="step-fill" id="stepFill"></div>
-      <div class="step active" data-step="1">
-        <div class="circle">1</div><div class="label">Personal Info</div>
-      </div>
-      <div class="step" data-step="2">
-        <div class="circle">2</div><div class="label">Left Hand</div>
-      </div>
-      <div class="step" data-step="3">
-        <div class="circle">3</div><div class="label">Right Hand</div>
-      </div>
-      <div class="step" data-step="4">
-        <div class="circle">4</div><div class="label">Review</div>
-      </div>
+      <div class="step active" data-step="1"><div class="circle">1</div><div class="label">Personal Info</div></div>
+      <div class="step" data-step="2"><div class="circle">2</div><div class="label">Left Hand</div></div>
+      <div class="step" data-step="3"><div class="circle">3</div><div class="label">Right Hand</div></div>
+      <div class="step" data-step="4"><div class="circle">4</div><div class="label">Review</div></div>
     </div>
   </div>
 
@@ -565,43 +562,38 @@
   <!-- STEP 2 : LEFT HAND -->
   <section class="card step-panel" data-panel="2" style="display:none">
     <h2>Left Hand <span class="accent">Biometric</span></h2>
-    <p class="subtitle">Place your left hand flat on the scanning surface. Keep still during the capture.</p>
+    <p class="subtitle">Place your left hand on the scanner. The system will automatically scan each finger one by one. Touch the scanner area to begin.</p>
 
     <div class="bio-layout">
-      <div class="bio-stage" id="stageLeft">
+      <div class="bio-stage" id="stageLeft" data-hand="left">
         <div class="corner tl"></div><div class="corner tr"></div>
         <div class="corner bl"></div><div class="corner br"></div>
         <div class="scan-line"></div>
 
-        <svg class="hand-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="handGradL" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(147,197,253,.35)"/>
-              <stop offset="100%" stop-color="rgba(59,130,246,.1)"/>
-            </linearGradient>
-          </defs>
-          <path class="hand-fill" d="M55,120 Q50,90 60,70 Q65,55 80,55 Q90,55 95,70 L95,50 Q95,35 110,35 Q125,35 125,55 L125,50 Q125,38 140,38 Q155,38 155,55 L155,60 Q155,48 170,48 Q182,48 182,65 L182,140 Q182,180 160,210 Q140,235 110,240 Q80,240 60,220 Q45,200 50,170 Z" fill="url(#handGradL)"/>
-          <path d="M95,70 L95,100 M125,55 L125,100 M155,55 L155,100 M182,65 L182,100" stroke="rgba(147,197,253,.5)" stroke-width="1" fill="none"/>
-          <path d="M70,140 Q110,135 170,145 M80,170 Q115,175 150,170 M90,200 Q115,205 140,200" stroke="rgba(147,197,253,.4)" stroke-width="1" fill="none"/>
-          <text x="100" y="255" text-anchor="middle" fill="#d4af37" font-size="10" font-weight="700" letter-spacing="2">LEFT HAND</text>
-        </svg>
+        <!-- 5 Finger Display -->
+        <div class="finger-row" id="fingerRowLeft">
+          <div class="finger" data-finger="thumb"><div class="finger-tip"></div><div class="finger-name">Thumb</div></div>
+          <div class="finger" data-finger="index"><div class="finger-tip"></div><div class="finger-name">Index</div></div>
+          <div class="finger" data-finger="middle"><div class="finger-tip"></div><div class="finger-name">Middle</div></div>
+          <div class="finger" data-finger="ring"><div class="finger-tip"></div><div class="finger-name">Ring</div></div>
+          <div class="finger" data-finger="pinky"><div class="finger-tip"></div><div class="finger-name">Pinky</div></div>
+        </div>
 
-        <div class="bio-status" id="statusLeft">READY TO SCAN</div>
+        <div class="bio-status" id="statusLeft">TAP TO START SCAN</div>
+        <div class="finger-counter" id="counterLeft"></div>
+        <div class="tap-hint" id="hintLeft">👆 Tap anywhere on scanner to begin</div>
       </div>
 
       <div class="bio-info">
-        <h3>Biometric Capture — Left Hand</h3>
-        <p>The scanner will capture your left hand fingerprint pattern. Please ensure your hand is clean and dry before scanning.</p>
+        <h3>Left Hand — 5 Finger Scan</h3>
+        <p>The scanner will automatically capture each finger one by one. Each finger takes about 2.5 seconds. Keep your hand steady.</p>
+
+        <div class="finger-list" id="fingerListLeft"></div>
 
         <div class="progress-box">
-          <div class="progress-label"><span>Scan Progress</span><span class="pct" id="pctLeft">0%</span></div>
+          <div class="progress-label"><span>Finger: <span class="fname" id="fnameLeft">—</span></span><span class="pct" id="pctLeft">0%</span></div>
           <div class="progress-bar"><div class="fill" id="fillLeft"></div></div>
         </div>
-
-        <button class="btn btn-gold" id="scanLeft" style="width:100%;justify-content:center">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-          Scan Left Hand
-        </button>
 
         <div class="success-banner" id="doneLeft">
           <div class="check">
@@ -609,7 +601,7 @@
           </div>
           <div>
             <strong>✓ Left Hand Biometric Captured Successfully</strong>
-            <small>Quality score: Excellent</small>
+            <small>All 5 fingers scanned · Quality: Excellent</small>
           </div>
         </div>
       </div>
@@ -624,43 +616,37 @@
   <!-- STEP 3 : RIGHT HAND -->
   <section class="card step-panel" data-panel="3" style="display:none">
     <h2>Right Hand <span class="accent">Biometric</span></h2>
-    <p class="subtitle">Place your right hand flat on the scanning surface. Keep still during the capture.</p>
+    <p class="subtitle">Place your right hand on the scanner. The system will automatically scan each finger one by one. Touch the scanner area to begin.</p>
 
     <div class="bio-layout">
-      <div class="bio-stage" id="stageRight">
+      <div class="bio-stage" id="stageRight" data-hand="right">
         <div class="corner tl"></div><div class="corner tr"></div>
         <div class="corner bl"></div><div class="corner br"></div>
         <div class="scan-line"></div>
 
-        <svg class="hand-svg" viewBox="0 0 200 260" xmlns="http://www.w3.org/2000/svg" style="transform:scaleX(-1)">
-          <defs>
-            <linearGradient id="handGradR" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="rgba(147,197,253,.35)"/>
-              <stop offset="100%" stop-color="rgba(59,130,246,.1)"/>
-            </linearGradient>
-          </defs>
-          <path class="hand-fill" d="M55,120 Q50,90 60,70 Q65,55 80,55 Q90,55 95,70 L95,50 Q95,35 110,35 Q125,35 125,55 L125,50 Q125,38 140,38 Q155,38 155,55 L155,60 Q155,48 170,48 Q182,48 182,65 L182,140 Q182,180 160,210 Q140,235 110,240 Q80,240 60,220 Q45,200 50,170 Z" fill="url(#handGradR)"/>
-          <path d="M95,70 L95,100 M125,55 L125,100 M155,55 L155,100 M182,65 L182,100" stroke="rgba(147,197,253,.5)" stroke-width="1" fill="none"/>
-          <path d="M70,140 Q110,135 170,145 M80,170 Q115,175 150,170 M90,200 Q115,205 140,200" stroke="rgba(147,197,253,.4)" stroke-width="1" fill="none"/>
-          <text x="100" y="255" text-anchor="middle" fill="#d4af37" font-size="10" font-weight="700" letter-spacing="2" style="transform:scaleX(-1);transform-origin:center">RIGHT HAND</text>
-        </svg>
+        <div class="finger-row" id="fingerRowRight">
+          <div class="finger" data-finger="thumb"><div class="finger-tip"></div><div class="finger-name">Thumb</div></div>
+          <div class="finger" data-finger="index"><div class="finger-tip"></div><div class="finger-name">Index</div></div>
+          <div class="finger" data-finger="middle"><div class="finger-tip"></div><div class="finger-name">Middle</div></div>
+          <div class="finger" data-finger="ring"><div class="finger-tip"></div><div class="finger-name">Ring</div></div>
+          <div class="finger" data-finger="pinky"><div class="finger-tip"></div><div class="finger-name">Pinky</div></div>
+        </div>
 
-        <div class="bio-status" id="statusRight">READY TO SCAN</div>
+        <div class="bio-status" id="statusRight">TAP TO START SCAN</div>
+        <div class="finger-counter" id="counterRight"></div>
+        <div class="tap-hint" id="hintRight">👆 Tap anywhere on scanner to begin</div>
       </div>
 
       <div class="bio-info">
-        <h3>Biometric Capture — Right Hand</h3>
-        <p>The scanner will capture your right hand fingerprint pattern. Please ensure your hand is clean and dry before scanning.</p>
+        <h3>Right Hand — 5 Finger Scan</h3>
+        <p>The scanner will automatically capture each finger one by one. Each finger takes about 2.5 seconds. Keep your hand steady.</p>
+
+        <div class="finger-list" id="fingerListRight"></div>
 
         <div class="progress-box">
-          <div class="progress-label"><span>Scan Progress</span><span class="pct" id="pctRight">0%</span></div>
+          <div class="progress-label"><span>Finger: <span class="fname" id="fnameRight">—</span></span><span class="pct" id="pctRight">0%</span></div>
           <div class="progress-bar"><div class="fill" id="fillRight"></div></div>
         </div>
-
-        <button class="btn btn-gold" id="scanRight" style="width:100%;justify-content:center">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg>
-          Scan Right Hand
-        </button>
 
         <div class="success-banner" id="doneRight">
           <div class="check">
@@ -668,7 +654,7 @@
           </div>
           <div>
             <strong>✓ Right Hand Biometric Captured Successfully</strong>
-            <small>Quality score: Excellent</small>
+            <small>All 5 fingers scanned · Quality: Excellent</small>
           </div>
         </div>
       </div>
@@ -717,10 +703,7 @@
   © 2026 IMO · <span>Biometric Registration Center</span> · Demo Simulator
 </footer>
 
-<!-- Loader -->
 <div class="loader" id="loader"><div class="loader-box"><div class="spinner"></div><p id="loaderText">Processing...</p></div></div>
-
-<!-- Toast -->
 <div class="toast" id="toast"></div>
 
 <!-- Hidden Receipt -->
@@ -738,10 +721,9 @@
   <div class="receipt-body" id="receiptBody"></div>
   <div class="receipt-status">
     <h4>✓ STATUS: COMPLETED</h4>
-    <p>All biometric data successfully captured and verified</p>
+    <p>All 10 fingerprints successfully captured and verified</p>
   </div>
   <div class="receipt-footer">
-    <!-- Circular SVG stamp -->
     <svg class="receipt-stamp" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <path id="stampCircleTop" d="M 65,65 m -52,0 a 52,52 0 1,1 104,0 a 52,52 0 1,1 -104,0"/>
@@ -761,14 +743,21 @@
 </div>
 
 <script>
+const FINGERS = ['thumb','index','middle','ring','pinky'];
+const FINGER_LABELS = {
+  thumb:'Thumb', index:'Index Finger', middle:'Middle Finger',
+  ring:'Ring Finger', pinky:'Pinky Finger'
+};
+const FINGER_DURATION = 2500; // ms per finger
+
 const state = {
   step: 1,
-  data: {
-    fullName:'', passport:'', phone:'', nationality:'', photo:null, photoDataUrl:''
-  },
+  data: { fullName:'', passport:'', phone:'', nationality:'', photoDataUrl:'' },
   regId:'',
   regDate:null,
-  leftDone:false, rightDone:false
+  leftDone:false, rightDone:false,
+  scanning: { left:false, right:false },
+  completed: { left:false, right:false }
 };
 
 function goToStep(n){
@@ -782,10 +771,44 @@ function goToStep(n){
     if(sn < n) s.classList.add('done');
     else if(sn === n) s.classList.add('active');
   });
-  const pct = ((n-1)/3)*90;
-  document.getElementById('stepFill').style.width = pct + '%';
+  document.getElementById('stepFill').style.width = (((n-1)/3)*90) + '%';
   window.scrollTo({top:0,behavior:'smooth'});
+
+  if(n === 2) initHandUI('left');
+  if(n === 3) initHandUI('right');
 }
+
+function initHandUI(hand){
+  const row = document.getElementById(hand === 'left' ? 'fingerRowLeft' : 'fingerRowRight');
+  const counter = document.getElementById(hand === 'left' ? 'counterLeft' : 'counterRight');
+  const list = document.getElementById(hand === 'left' ? 'fingerListLeft' : 'fingerListRight');
+
+  // Reset fingers
+  row.querySelectorAll('.finger').forEach(f=>{
+    f.classList.remove('scanning','done');
+  });
+
+  // Build counter dots
+  counter.innerHTML = FINGERS.map((_,i)=>`<div class="dot" data-i="${i}"></div>`).join('');
+
+  // Build finger list
+  list.innerHTML = FINGERS.map((f,i)=>`
+    <div class="finger-list-item" data-finger="${f}">
+      <div class="ico">${i+1}</div>
+      <div>${FINGER_LABELS[f]}</div>
+      <div style="margin-left:auto;font-size:11px;color:var(--gray-500)">Pending</div>
+    </div>
+  `).join('');
+
+  document.getElementById('fname' + cap(hand)).textContent = '—';
+  document.getElementById('pct' + cap(hand)).textContent = '0%';
+  document.getElementById('fill' + cap(hand)).style.width = '0%';
+  document.getElementById('status' + cap(hand)).textContent = 'TAP TO START SCAN';
+  document.getElementById('hint' + cap(hand)).style.display = 'block';
+  document.getElementById('done' + cap(hand)).classList.remove('show');
+}
+
+function cap(s){ return s.charAt(0).toUpperCase() + s.slice(1); }
 
 function setErr(id,msg){
   const wrap = document.getElementById(id).closest('.field');
@@ -803,23 +826,17 @@ document.getElementById('regForm').addEventListener('submit', e=>{
 
   if(fn.length < 2){ setErr('fullName','Please enter your full name'); ok=false; }
   else setErr('fullName','');
-
   if(!/^[A-Za-z0-9]{5,20}$/.test(pp)){ setErr('passport','Enter valid passport number (5-20 chars)'); ok=false; }
   else setErr('passport','');
-
   if(!/^[+\d\s\-()]{7,}$/.test(ph)){ setErr('phone','Enter a valid phone number'); ok=false; }
   else setErr('phone','');
-
   if(!na){ setErr('nationality','Please select your nationality'); ok=false; }
   else setErr('nationality','');
-
   if(!state.data.photoDataUrl){
     document.getElementById('photoErr').textContent = 'Please upload your passport photo';
     document.getElementById('photoUpload').classList.remove('has-file');
     ok=false;
-  } else {
-    document.getElementById('photoErr').textContent = '';
-  }
+  } else document.getElementById('photoErr').textContent = '';
 
   if(!ok){ showToast('⚠ Please correct the highlighted fields'); return; }
 
@@ -855,67 +872,135 @@ photoInput.addEventListener('change', e=>{
   r.readAsDataURL(f);
 });
 
-function runScan(stageId, statusId, fillId, pctId, btnId, doneId, onDone){
-  const stage = document.getElementById(stageId);
-  const status = document.getElementById(statusId);
-  const fill = document.getElementById(fillId);
-  const pct = document.getElementById(pctId);
-  const btn = document.getElementById(btnId);
-  const done = document.getElementById(doneId);
+/* ============ BIOMETRIC SCAN LOGIC ============ */
+function startHandScan(hand){
+  if(state.completed[hand]) return;
+  if(state.scanning[hand]) return;
+  state.scanning[hand] = true;
 
-  btn.disabled = true;
-  btn.innerHTML = '<div class="spinner" style="width:18px;height:18px;border-width:3px;margin:0"></div> Scanning...';
+  const H = cap(hand);
+  const stage = document.getElementById('stage' + H);
+  const status = document.getElementById('status' + H);
+  const fill = document.getElementById('fill' + H);
+  const pct = document.getElementById('pct' + H);
+  const fname = document.getElementById('fname' + H);
+  const counter = document.getElementById('counter' + H);
+  const list = document.getElementById('fingerList' + H);
+  const hint = document.getElementById('hint' + H);
+  const row = document.getElementById('fingerRow' + H);
+
+  hint.style.display = 'none';
   stage.classList.add('scanning');
-  status.textContent = 'SCANNING IN PROGRESS';
+  status.textContent = 'SCANNING FINGERS';
 
-  const duration = 3000;
-  const start = Date.now();
-  const tick = ()=>{
-    const elapsed = Date.now() - start;
-    const p = Math.min(100, Math.floor((elapsed/duration)*100));
-    fill.style.width = p + '%';
-    pct.textContent = p + '%';
-    if(elapsed < duration) requestAnimationFrame(tick);
-    else {
-      fill.style.width = '100%';
-      pct.textContent = '100%';
+  let currentFinger = 0;
+
+  function scanNextFinger(){
+    if(currentFinger >= 5){
+      // All done
       stage.classList.remove('scanning');
-      status.textContent = 'SCAN COMPLETE';
-      done.classList.add('show');
-      btn.innerHTML = '✓ Captured';
-      btn.style.opacity = '.7';
-      onDone();
+      status.textContent = '✓ ALL FINGERS CAPTURED';
+      status.style.color = '#86efac';
+      state.scanning[hand] = false;
+      state.completed[hand] = true;
+      if(hand === 'left'){
+        state.leftDone = true;
+        document.getElementById('next2').disabled = false;
+        document.getElementById('doneLeft').classList.add('show');
+      } else {
+        state.rightDone = true;
+        document.getElementById('next3').disabled = false;
+        document.getElementById('doneRight').classList.add('show');
+      }
+      showToast(`✓ ${H} hand biometric captured successfully`);
+      return;
     }
-  };
-  tick();
+
+    const finger = FINGERS[currentFinger];
+    const label = FINGER_LABELS[finger];
+
+    // Mark current finger in UI
+    row.querySelectorAll('.finger').forEach((f,i)=>{
+      f.classList.remove('scanning');
+      if(i === currentFinger) f.classList.add('scanning');
+    });
+    counter.querySelectorAll('.dot').forEach((d,i)=>{
+      d.classList.remove('active');
+      if(i === currentFinger) d.classList.add('active');
+      if(i < currentFinger) d.classList.add('done');
+    });
+    list.querySelectorAll('.finger-list-item').forEach((li,i)=>{
+      li.classList.remove('active');
+      if(i === currentFinger){
+        li.classList.add('active');
+        li.querySelector('div:last-child').textContent = 'Scanning...';
+        li.querySelector('div:last-child').style.color = 'var(--gold-dark)';
+      }
+    });
+    fname.textContent = label;
+    status.textContent = `SCANNING: ${label.toUpperCase()}`;
+
+    // Animate progress for this finger
+    const start = Date.now();
+    const tick = ()=>{
+      const elapsed = Date.now() - start;
+      const p = Math.min(100, Math.floor((elapsed/FINGER_DURATION)*100));
+      fill.style.width = p + '%';
+      pct.textContent = p + '%';
+
+      if(elapsed < FINGER_DURATION){
+        requestAnimationFrame(tick);
+      } else {
+        // Finger done
+        fill.style.width = '0%';
+        const fingerEl = row.querySelectorAll('.finger')[currentFinger];
+        fingerEl.classList.remove('scanning');
+        fingerEl.classList.add('done');
+        const listItem = list.querySelectorAll('.finger-list-item')[currentFinger];
+        listItem.classList.remove('active');
+        listItem.classList.add('done');
+        listItem.querySelector('div:last-child').textContent = '✓ Captured';
+        listItem.querySelector('div:last-child').style.color = 'var(--success)';
+
+        // Haptic feedback on mobile
+        if(navigator.vibrate) navigator.vibrate(50);
+
+        currentFinger++;
+        // Brief pause between fingers
+        setTimeout(scanNextFinger, 400);
+      }
+    };
+    tick();
+  }
+
+  scanNextFinger();
 }
 
-document.getElementById('scanLeft').addEventListener('click', ()=>{
-  runScan('stageLeft','statusLeft','fillLeft','pctLeft','scanLeft','doneLeft',()=>{
-    state.leftDone = true;
-    document.getElementById('next2').disabled = false;
-    showToast('✓ Left hand biometric captured');
-  });
-});
+// Attach tap listeners to both stages
+function attachTap(hand){
+  const stage = document.getElementById('stage' + cap(hand));
+  const handler = (e)=>{
+    e.preventDefault();
+    startHandScan(hand);
+  };
+  stage.addEventListener('click', handler);
+  stage.addEventListener('touchstart', handler, {passive:false});
+}
+attachTap('left');
+attachTap('right');
 
-document.getElementById('scanRight').addEventListener('click', ()=>{
-  runScan('stageRight','statusRight','fillRight','pctRight','scanRight','doneRight',()=>{
-    state.rightDone = true;
-    document.getElementById('next3').disabled = false;
-    showToast('✓ Right hand biometric captured');
-  });
+document.getElementById('back1').addEventListener('click', ()=>{
+  if(state.scanning.left || state.completed.left) return;
+  goToStep(1);
 });
-
-document.getElementById('back1').addEventListener('click', ()=> goToStep(1));
 document.getElementById('next2').addEventListener('click', ()=> goToStep(3));
-document.getElementById('back2').addEventListener('click', ()=> goToStep(2));
+document.getElementById('back2').addEventListener('click', ()=>{
+  if(state.scanning.right || state.completed.right) return;
+  goToStep(2);
+});
 document.getElementById('next3').addEventListener('click', ()=>{
   showLoader('Finalizing registration...');
-  setTimeout(()=>{
-    buildReview();
-    hideLoader();
-    goToStep(4);
-  }, 1100);
+  setTimeout(()=>{ buildReview(); hideLoader(); goToStep(4); }, 1100);
 });
 
 function buildReview(){
@@ -930,8 +1015,8 @@ function buildReview(){
     ['Phone Number', state.data.phone],
     ['Nationality', state.data.nationality],
     ['Registration Date', state.regDate.toLocaleString('en-US',{dateStyle:'full',timeStyle:'short'})],
-    ['Left Hand Scan', '✓ Captured'],
-    ['Right Hand Scan', '✓ Captured']
+    ['Left Hand', '✓ 5 fingers captured'],
+    ['Right Hand', '✓ 5 fingers captured']
   ];
   list.innerHTML = rows.map(r=>`<div class="info-row"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('');
   document.getElementById('revPhoto').src = state.data.photoDataUrl;
@@ -939,7 +1024,6 @@ function buildReview(){
 
 document.getElementById('downloadBtn').addEventListener('click', async ()=>{
   showLoader('Generating receipt...');
-
   const body = document.getElementById('receiptBody');
   const rows = [
     ['Registration ID', state.regId],
@@ -948,6 +1032,8 @@ document.getElementById('downloadBtn').addEventListener('click', async ()=>{
     ['Phone Number', state.data.phone],
     ['Nationality', state.data.nationality],
     ['Registration Date', state.regDate.toLocaleString('en-US',{dateStyle:'long',timeStyle:'short'})],
+    ['Left Hand', '5 Fingers · Verified'],
+    ['Right Hand', '5 Fingers · Verified'],
     ['Status', 'COMPLETED']
   ];
   body.innerHTML = rows.map(r=>`<div class="receipt-row"><div class="k">${r[0]}</div><div class="v">${r[1]}</div></div>`).join('');
